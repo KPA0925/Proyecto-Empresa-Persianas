@@ -30,7 +30,7 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
 
         <SettingsLayout>
             <div class="space-y-6">
-                <HeadingSmall title="Update password" description="Ensure your account is using a long, random password to stay secure" />
+                <HeadingSmall title="Actualizar Contraseña" description="Asegúrate de que tu cuenta esté utilizando una contraseña larga y aleatoria para mantenerla segura." />
 
                 <Form
                     v-bind="PasswordController.update.form()"
@@ -43,7 +43,7 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                     v-slot="{ errors, processing, recentlySuccessful }"
                 >
                     <div class="grid gap-2">
-                        <Label for="current_password">Current password</Label>
+                        <Label for="current_password">Contraseña Anterior</Label>
                         <Input
                             id="current_password"
                             ref="currentPasswordInput"
@@ -51,13 +51,13 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                             type="password"
                             class="mt-1 block w-full"
                             autocomplete="current-password"
-                            placeholder="Current password"
+                            placeholder="Contraseña Anterior"
                         />
                         <InputError :message="errors.current_password" />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="password">New password</Label>
+                        <Label for="password">Nueva Contraseña</Label>
                         <Input
                             id="password"
                             ref="passwordInput"
@@ -65,26 +65,26 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                             type="password"
                             class="mt-1 block w-full"
                             autocomplete="new-password"
-                            placeholder="New password"
+                            placeholder="Nueva Contraseña"
                         />
                         <InputError :message="errors.password" />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="password_confirmation">Confirm password</Label>
+                        <Label for="password_confirmation">Confirmar Contraseña</Label>
                         <Input
                             id="password_confirmation"
                             name="password_confirmation"
                             type="password"
                             class="mt-1 block w-full"
                             autocomplete="new-password"
-                            placeholder="Confirm password"
+                            placeholder="Confirmar Contraseña"
                         />
                         <InputError :message="errors.password_confirmation" />
                     </div>
 
                     <div class="flex items-center gap-4">
-                        <Button :disabled="processing">Save password</Button>
+                        <Button :disabled="processing">Guardar Contraseña</Button>
 
                         <Transition
                             enter-active-class="transition ease-in-out"

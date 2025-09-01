@@ -19,11 +19,11 @@ const breadcrumbItems: BreadcrumbItem[] = [
 
 <template>
     <AppLayout :breadcrumbs="breadcrumbItems">
-        <Head title="Appearance settings" />
+        <Head title="Apariencia" />
 
         <SettingsLayout>
             <div class="space-y-6">
-                <HeadingSmall title="Appearance settings" description="Update your account's appearance settings" />
+                <HeadingSmall title="Ajustes de Apariencia" description="Actualiza los ajustes de apariencia de tu cuenta" />
                 <AppearanceTabs />
             </div>
         </SettingsLayout>
