@@ -17,7 +17,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-            <h1>HOLA MUNDO</h1>
+            <h1>HOLA MUNDO USUARIO</h1>
         </div>
     </AppLayout>
 </template>
