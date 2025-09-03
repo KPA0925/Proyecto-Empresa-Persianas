@@ -2,13 +2,13 @@
 
 use App\Models\User;
 
-test('login screen can be rendered', function () {
+test('la pantalla de inicio de sesión se puede renderizar', function () {
     $response = $this->get(route('login'));
 
     $response->assertStatus(200);
 });
 
-test('users can authenticate using the login screen', function () {
+test('los usuarios pueden autenticarse utilizando la pantalla de inicio de sesión', function () {
     $user = User::factory()->create();
 
     $response = $this->post(route('login.store'), [
@@ -20,7 +20,7 @@ test('users can authenticate using the login screen', function () {
     $response->assertRedirect(route('dashboard', absolute: false));
 });
 
-test('users can not authenticate with invalid password', function () {
+test('los usuarios no pueden autenticarse con una contraseña inválida', function () {
     $user = User::factory()->create();
 
     $this->post(route('login.store'), [
@@ -31,7 +31,7 @@ test('users can not authenticate with invalid password', function () {
     $this->assertGuest();
 });
 
-test('users can logout', function () {
+test('los usuarios pueden cerrar sesión', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->post(route('logout'));
@@ -40,7 +40,7 @@ test('users can logout', function () {
     $response->assertRedirect(route('home'));
 });
 
-test('users are rate limited', function () {
+test('los usuarios están limitados por la tasa de intentos', function () {
     $user = User::factory()->create();
 
     for ($i = 0; $i < 5; $i++) {
@@ -48,7 +48,7 @@ test('users are rate limited', function () {
             'email' => $user->email,
             'password' => 'wrong-password',
         ])->assertStatus(302)->assertSessionHasErrors([
-            'email' => 'These credentials do not match our records.',
+            'email' => 'Estas credenciales no coinciden con nuestros registros.',
         ]);
     }
 
@@ -61,5 +61,5 @@ test('users are rate limited', function () {
 
     $errors = session('errors');
 
-    $this->assertStringContainsString('Too many login attempts', $errors->first('email'));
+    $this->assertStringContainsString('Demasiados intentos de inicio de sesión', $errors->first('email'));
 });

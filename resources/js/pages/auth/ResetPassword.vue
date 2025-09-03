@@ -18,8 +18,8 @@ const inputEmail = ref(props.email);
 </script>
 
 <template>
-    <AuthLayout title="Reset password" description="Please enter your new password below">
-        <Head title="Reset password" />
+    <AuthLayout title="Restablecer contraseña" description="Por favor ingresa tu nueva contraseña a continuación">
+        <Head title="Restablecer contraseña" />
 
         <Form
             v-bind="NewPasswordController.store.form()"
